@@ -84,7 +84,6 @@ end)
 
 -- death, clear position and weapons
 AddEventHandler("vRP:playerDied",function()
-  print("player die")
   local user_id = vRP.getUserId(source)
   if user_id ~= nil then
     local data = vRP.getUserDataTable(user_id)

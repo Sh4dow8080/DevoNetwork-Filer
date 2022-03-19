@@ -55,7 +55,6 @@ end
 function Queue:DebugPrint(msg)
     if Queue.Debug then
         msg = "^3KØ: ^0" .. tostring(msg) .. "^7"
-        print(msg)
     end
 end
 

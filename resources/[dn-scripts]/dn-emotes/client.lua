@@ -585,7 +585,6 @@ function stopAnim(instant)
             end
         end
     elseif instant then
-        print("qweqwe")
         delProps(ped, 1)
     end
     if holdingcash then
@@ -754,7 +753,6 @@ function suicide()
     local ped = GetPlayerPed( -1 )
     if (DoesEntityExist(ped) and not IsEntityDead(ped)) then
         local gun = GetSelectedPedWeapon(ped)
-        print(gun)
         if has_value(suicideweapons, gun) then
             SetCurrentPedWeapon(ped, gun, true)
             loadAnimDict("mp_suicide")

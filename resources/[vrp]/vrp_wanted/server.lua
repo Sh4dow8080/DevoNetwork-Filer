@@ -37,13 +37,11 @@ function vRP.efterlysPers(user_id,nuser_id,grund)
 							local firstname = identity.firstname
 							local lastname = identity.name
 							local name = firstname .." ".. lastname
-							print(name)
 							if name ~= v.wantedby then
 								local pers = v.wantedby.." & "..name
 							else
 								local pers = name
 							end
-							print(pers)
 
 							MySQL.execute("vRP/update_wanted", {user_id = nuser_id, reason = nygrund, by = pers, count = ncount})
 						end})
@@ -55,7 +53,6 @@ function vRP.efterlysPers(user_id,nuser_id,grund)
 				local firstname = identity.firstname
 				local lastname = identity.name
 				local name = firstname .." ".. lastname
-				print(name)
 				local time = os.time()
 				local grund = "<br />1: "..grund
 				local count = 1

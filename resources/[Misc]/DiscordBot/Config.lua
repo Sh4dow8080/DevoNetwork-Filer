@@ -1,6 +1,6 @@
-DiscordWebhookSystemInfos = 'DIT_WEBHOOK_LINKw2523'
+DiscordWebhookSystemInfos = 'DIT_WEBHOOK_LINK'
 DiscordWebhookKillinglogs = 'DIT_WEBHOOK_LINK'
-DiscordWebhookChat = 'DIT_WEBHOOK_LINKsdass249'
+DiscordWebhookChat = 'DIT_WEBHOOK_LINK'
 
 SystemAvatar = 'https://devonetwork.dk/assets/img/Logo.png'
 
