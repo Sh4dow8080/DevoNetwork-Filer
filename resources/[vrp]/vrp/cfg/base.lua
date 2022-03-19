@@ -3,9 +3,9 @@ local cfg = {}
 -- mysql credentials
 cfg.db = {
   host = "127.0.0.1", -- database ip (default is local)
-  database = "devodev",   -- name of database
-  user = "devodev",    --  database username
-  password = "DeVoDEv2ixd4kjcdr"   -- password of your database
+  database = "devo",   -- name of database
+  user = "root",    --  database username
+  password = ""   -- password of your database
 }
 
 cfg.save_interval = 30 -- seconds
