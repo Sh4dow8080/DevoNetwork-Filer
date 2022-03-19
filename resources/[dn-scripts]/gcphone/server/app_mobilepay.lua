@@ -19,7 +19,7 @@ AddEventHandler('gcPhone:mobilepay_sendpayment', function(data)
       if tosource ~= nil then
         if vRP.tryBankPayment({user_id,tonumber(data.money)}) then
           vRP.giveBankMoney({touserid,tonumber(data.money)})
-          PerformHttpRequest('https://discordapp.com/api/webhooks/640569800967585827/GQf_mpJ-xXKkbZLuvWXdmNahve1NtP2QHXOAHclSP0YWtrO5jybWxO9J4zI_GpBoauUC', function(err, text, headers) end, 'POST', json.encode({username = "Server "..GetConvar("servernumber", "0").." - Mobilepay", content = "**"..user_id.."** har lige sendt **"..format_thousand(tonumber(data.money)).."** kr. til **"..touserid.."** (**"..os.date("%H:%M:%S %d/%m/%Y").."**)"}), { ['Content-Type'] = 'application/json' })
+          PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server "..GetConvar("servernumber", "0").." - Mobilepay", content = "**"..user_id.."** har lige sendt **"..format_thousand(tonumber(data.money)).."** kr. til **"..touserid.."** (**"..os.date("%H:%M:%S %d/%m/%Y").."**)"}), { ['Content-Type'] = 'application/json' })
           TriggerClientEvent("pNotify:SendNotification", source,{
             text = "<h3>📱 Mobilepay</h3> <br> <p>Du har sendt <b style='color:#64A664'>"..format_thousand(tonumber(data.money)).." $</b> til <b style='color:#64A664'>"..display.."</b></p>",
             type = "info",

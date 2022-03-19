@@ -171,7 +171,7 @@ local function business_enter()
                           capital = 1,
                           time = os.time()
                         })
-                        PerformHttpRequest('https://discordapp.com/api/webhooks/547417630366105610/J99u1RLahm0_p3npG24lJlEODGlRKa9y2lxVICstOlTJHGIEPnDPNDuHWjDuDStalv3z', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0"), content = "**"..user_id.."** har åbnet **"..name.."** for **"..nuser_id.."**"}), { ['Content-Type'] = 'application/json' })
+                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0"), content = "**"..user_id.."** har åbnet **"..name.."** for **"..nuser_id.."**"}), { ['Content-Type'] = 'application/json' })
                         TriggerClientEvent("pNotify:SendNotification", player,{text = {"Du har åbnet "..name.." for "..nuser_id.."!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                         vRP.closeMenu(player) -- close the menu to force update business info
                       else
@@ -206,7 +206,7 @@ local function business_enter()
                           capital = 1,
                           time = os.time()
                         })
-                        PerformHttpRequest('https://discordapp.com/api/webhooks/547417630366105610/J99u1RLahm0_p3npG24lJlEODGlRKa9y2lxVICstOlTJHGIEPnDPNDuHWjDuDStalv3z', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0"), content = "**"..user_id.."** har åbnet **"..name.."** for **"..nuser_id.."**"}), { ['Content-Type'] = 'application/json' })
+                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0"), content = "**"..user_id.."** har åbnet **"..name.."** for **"..nuser_id.."**"}), { ['Content-Type'] = 'application/json' })
                         TriggerClientEvent("pNotify:SendNotification", player,{text = {"Du har åbnet "..name.." for "..nuser_id.."!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                         vRP.closeMenu(player) -- close the menu to force update business info
                       else

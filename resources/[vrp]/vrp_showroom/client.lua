@@ -11,7 +11,7 @@ end
 
 local vehshop = {
 	opened = false,
-	title = "DevoNetwork Bilforhandler",
+	title = "DIT_SERVER_NAVN Bilforhandler",
 	currentmenu = "Main",
 	lastmenu = nil,
 	currentpos = nil,

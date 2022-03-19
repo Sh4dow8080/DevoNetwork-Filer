@@ -63,7 +63,7 @@ function vRP.setMoney(user_id,value)
                 table.insert(fields, { name = "ID:", value = user_id })
                 table.insert(fields, { name = "Penge fået:", value = newwallet-twallet })
                 table.insert(fields, { name = "Bannet:", value = banned })
-                PerformHttpRequest("https://discordapp.com/api/webhooks/640566436154179594/3H8FF40kB35cHAaqFwfwTyo7kmM3Zw1uKkSecs3aEzYDQ7vvgCSBKtfH21QGsCW-DRAh", function(err, text, headers) end, 'POST', json.encode(
+                PerformHttpRequest("DIT_WEBHOOK_LINK", function(err, text, headers) end, 'POST', json.encode(
                     {
                         username = "Server "..GetConvar("servernumber", "0").." - Penge",
                         content = "Mistænkt for spawn af penge "..(newwallet-twallet > 5000000 and "@everyone" or ""),
@@ -340,7 +340,7 @@ local function ch_give(player,choice)
 							
                local dname = "[ID - ".. tostring(user_id).. "] Penge | Log"
               local dmessage = "ID **".. tostring(user_id).. "** Gav lige **".. tostring(nuser_id).. " ".. tostring(amount).. " $**"
-              PerformHttpRequest('https://discordapp.com/api/webhooks/640566436154179594/3H8FF40kB35cHAaqFwfwTyo7kmM3Zw1uKkSecs3aEzYDQ7vvgCSBKtfH21QGsCW-DRAh', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+              PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
                         else
                             TriggerClientEvent("pNotify:SendNotification", player,{text = {lang.money.not_enough()}, type = "error", queue = "global", timeout = 4000, layout = "bottomCenter",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                         end

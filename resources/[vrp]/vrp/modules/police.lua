@@ -539,7 +539,7 @@ local choice_seize_weapons = {function(player, choice)
 											end
 										end
 										vRPclient.giveWeapons(nplayer,{{},true})
-										PerformHttpRequest('https://discordapp.com/api/webhooks/640568552356577328/wmPBS04iWFNPFb6xcYj88v5g6kq91Kavngga8N8U9Zkab2_XBCxW1jP6Ki-gesKwCm4Q', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(seized_guns)}), { ['Content-Type'] = 'application/json' })
+										PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(seized_guns)}), { ['Content-Type'] = 'application/json' })
 										TriggerClientEvent("pNotify:SendNotification", nplayer,{text = {lang.police.menu.seize.weapons.seized()}, type = "warning", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
 									end)
 								else
@@ -590,7 +590,7 @@ local choice_seize_items = {function(player, choice)
 											end
 										end
 									end
-									PerformHttpRequest('https://discordapp.com/api/webhooks/640568552356577328/wmPBS04iWFNPFb6xcYj88v5g6kq91Kavngga8N8U9Zkab2_XBCxW1jP6Ki-gesKwCm4Q', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(seized_items)}), { ['Content-Type'] = 'application/json' })
+									PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(seized_items)}), { ['Content-Type'] = 'application/json' })
 									TriggerClientEvent("pNotify:SendNotification", nplayer,{text = {lang.police.menu.seize.items.seized()}, type = "info", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
 								else
 									TriggerClientEvent("pNotify:SendNotification", player,{text = {lang.police.not_handcuffed()}, type = "error", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
@@ -819,7 +819,7 @@ local choice_store_weapons = {function(player, choice)
 						end
 					end
 					
-					PerformHttpRequest('https://discordapp.com/api/webhooks/640568552356577328/wmPBS04iWFNPFb6xcYj88v5g6kq91Kavngga8N8U9Zkab2_XBCxW1jP6Ki-gesKwCm4Q', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(stored_items)}), { ['Content-Type'] = 'application/json' })
+					PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork [POLITI]" .. GetConvar("servernumber","#1"), content = table.concat(stored_items)}), { ['Content-Type'] = 'application/json' })
 					-- clear all weapons
 					--vRPclient.giveWeapons(player,{{},true})
 					vRP.closeMenu(player)

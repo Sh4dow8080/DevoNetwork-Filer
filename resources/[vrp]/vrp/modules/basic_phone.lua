@@ -8,7 +8,7 @@ local announces = cfg.announces
 local sanitizes = module("cfg/sanitizes")
 
 --Discord
-local DiscordWebhook = 'https://discordapp.com/api/webhooks/611240065565458452/tko6rmGc6OWJ2ytoz3XGb1jIs66l5dEsUC1vXU3zkYVdC7DyHZSrTgQ1WEgmhhEydQb1'
+local DiscordWebhook = 'DIT_WEBHOOK_LINK'
 -- PerformHttpRequest(DiscordWebhook, function(Error, Content, Head) end, 'POST', json.encode({username = "Distrikt "..GetConvar("servernumber"), content = '**Indlæser...** | Status: Ny dag'}), { ['Content-Type'] = 'application/json' })
 
 -- get phone directory data table

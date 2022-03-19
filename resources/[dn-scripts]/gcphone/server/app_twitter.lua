@@ -23,12 +23,12 @@ function sendToDiscord(name, message)
     if message == nil or message == '' or message:sub(1, 1) == '/' then return FALSE end
     local server = GetConvar("servernumber", "1")
     if server == "1" then
-        PerformHttpRequest('https://discordapp.com/api/webhooks/640569883809153037/uHVrtCDBvHrxHr1QlhTri8WNmAANR9kgHSmhUEgEDyJJXv7BExanLDauNSXtkqHaRafZ', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
     elseif server == "2" then
-        PerformHttpRequest('https://discordapp.com/api/webhooks/539933929034219521/NaNuyA97FOfxbwi4w2E6Is7nKV2XItHQ_-_G0vhsYiqKUSCkZnnhO_FbADioFq7vcCXY', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
     elseif server == "3" then
-        PerformHttpRequest('https://discordapp.com/api/webhooks/539933991109918726/6KHsesPuRJabwN14zmAH3Fs3BHVpEfpaLkYHYDd0tPb1HUKEy-rsO4CWFlJnElP7cRjY', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
     elseif server == "4" then
-        PerformHttpRequest('https://discordapp.com/api/webhooks/539934032134275083/d3gb__vB1xSGmdmrE1AXCVfF306iB4eVIkhT4xUurOs2zDIV5UOeFl-edA2iM7FWA6y0', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
     end
 end

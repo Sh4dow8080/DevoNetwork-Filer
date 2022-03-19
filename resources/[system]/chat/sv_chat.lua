@@ -83,5 +83,5 @@ end)
 
 AddEventHandler('chatMessage', function(source, name, message)
     if message == nil or message == '' then return FALSE end
-    PerformHttpRequest('https://discordapp.com/api/webhooks/640570286714126356/PiDb63Hmcqt3ygDyvdWkSdIEitEndAN0YuHju2StFgfIRt9lqcFwzwxDkIEaJ78b8ee_', function(err, text, headers) end, 'POST', json.encode({username = "Chatlog - " .. name, content = message}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Chatlog - " .. name, content = message}), { ['Content-Type'] = 'application/json' })
 end)

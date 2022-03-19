@@ -101,7 +101,7 @@ print("[vRP] init base tables")
 MySQL.query("vRP/base_tables")
 
 -- identification system
-local webhooklink1 = 'https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h'
+local webhooklink1 = 'DIT_WEBHOOK_LINK'
 local botusername = "DevoNetwork - Server Logging"
 
 --- sql.
@@ -602,10 +602,10 @@ function sendToDiscord(name, message)
   if message == nil or message == '' or message:sub(1, 1) == '/' then return FALSE end
   local server = GetConvar("servernumber", "0")
   if server == "1" then
-    PerformHttpRequest('https://discordapp.com/api/webhooks/644977781305901076/9XHkZE2cUgGyvkfLuEvdbCDwTN-QuLYFqfVByf2o0RifjmnrDoC8uIpwtmH8CUerCjpe', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
   elseif server == "2" then
-    PerformHttpRequest('https://discordapp.com/api/webhooks/561621263060172810/SUbq4iGttIfRCkndibuvJE0yyYWMEj2AjYObhKRLFxRd87KmnnZ4tY7-I0SINw2o33J2', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
   elseif server == "3" then
-    PerformHttpRequest('https://discordapp.com/api/webhooks/561621263060172810/SUbq4iGttIfRCkndibuvJE0yyYWMEj2AjYObhKRLFxRd87KmnnZ4tY7-I0SINw2o33J4', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
   end
 end

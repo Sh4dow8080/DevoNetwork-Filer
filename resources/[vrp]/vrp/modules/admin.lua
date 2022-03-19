@@ -79,7 +79,7 @@ local function ch_whitelist(player,choice)
 
       local dname = "[ ID: ".. tostring(user_id).. " ] - Server | Whitelist"
       local dmessage = "**[ ID: ".. tostring(user_id).. " ]** Tilføjede whitelist til **[ ID: " .. tostring(id).. " ]**."
-      PerformHttpRequest('https://discordapp.com/api/webhooks/640566915512795167/x8270VUnSIHDOc6NJR-GAJnDqgxK1l1CQQvOKUEiMtv32L1ut1RYjWdkR9-5R1qdhxW1', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+      PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
 
       TriggerClientEvent("pNotify:SendNotification", player,{text = "ID " ..id.. " blev whitelisted", type = "success", queue = "global", timeout = 3000, layout = "bottomCenter",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
@@ -96,7 +96,7 @@ local function ch_unwhitelist(player,choice)
 
       local dname = "[ ID: ".. tostring(user_id).. " ] - Server | Unwhitelist"
       local dmessage = "**[ ID: ".. tostring(user_id).. " ]** Fjernede whitelist Fra **[ ID: " .. tostring(id).. " ]**."
-      PerformHttpRequest('https://discordapp.com/api/webhooks/640566915512795167/x8270VUnSIHDOc6NJR-GAJnDqgxK1l1CQQvOKUEiMtv32L1ut1RYjWdkR9-5R1qdhxW1', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+      PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
       TriggerClientEvent("pNotify:SendNotification", player,{text = "ID " ..id.. " blev unwhitelisted", type = "success", queue = "global", timeout = 3000, layout = "bottomCenter",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
     end)
@@ -172,7 +172,7 @@ local function ch_addgroup_staff(player,choice)
 
                         local dname = "Server "..GetConvar("servernumber", "1") .."- Addgroup"
                         local dmessage = "**".. tostring(user_id).. "** tilføjede gruppe **[ ".. tostring(group).. " ]** til **" .. tostring(id).. "**"
-                        PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
                         TriggerClientEvent("pNotify:SendNotification", player,{text = id.." blev ansat som "..group, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                     end
@@ -199,7 +199,7 @@ local function ch_removegroup_staff(player,choice)
 
                         local dname = "Server "..GetConvar("servernumber", "1") .." Removegroup"
                         local dmessage = "**".. tostring(user_id).. "** fjernet gruppe **[ ".. tostring(group).. " ]** fra **" .. tostring(id).. "**"
-                        PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
                         TriggerClientEvent("pNotify:SendNotification", player,{text = id.." blev fyret som "..group, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                     end
@@ -238,7 +238,7 @@ local function ch_seize(player,choice)
                                     end
                                 end
                             end
-                            PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Seize", content = table.concat(seized_items)}), { ['Content-Type'] = 'application/json' })
+                            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Seize", content = table.concat(seized_items)}), { ['Content-Type'] = 'application/json' })
                             TriggerClientEvent("pNotify:SendNotification", nplayer,{text = {lang.police.menu.seize.items.seized()}, type = "info", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                         end
                     end)
@@ -262,7 +262,7 @@ local function ch_kick(player,choice)
 
                     local dname = "Server "..GetConvar("servernumber", "1").." - Kick"
                     local dmessage = "**".. tostring(user_id).. "** kickede **".. tostring(id).. "** - Begrundelse: **" .. tostring(reason).. "**"
-                    PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
                     TriggerClientEvent("pNotify:SendNotification", player,{text = "Du kickede "..id, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                 end
@@ -279,7 +279,7 @@ local function ch_ban(player,choice)
             vRP.prompt(player,"Årsag: ","",function(player,reason)
                 local dname = "Server "..GetConvar("servernumber", "1").." - Ban"
                 local dmessage = "**".. tostring(user_id).. "** bannede **".. tostring(id).. "** - Begrundelse: **" .. tostring(reason).. "**"
-                PerformHttpRequest('https://discordapp.com/api/webhooks/640583640929271831/dfyQndtw-575p8a8uW818ydHak4flxdWbB4G7hZW6vRo5rndstQH2Bbv5XLGgFAF6MWx', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
                 vRP.ban(id,reason,true)
                 TriggerClientEvent("pNotify:SendNotification", player,{text = "Du bannede "..id, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
             end)
@@ -297,7 +297,7 @@ local function ch_unban(player,choice)
 
 			local dname = "[ID - ".. tostring(user_id).. "] SPAnti-Abuse"
 			local dmessage = "ID ".. tostring(user_id).. " Just unbanned ID ".. tostring(id)
-			PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+			PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
     end)
   end
 end
@@ -315,7 +315,7 @@ local function ch_revivePlayer(player,choice)
             vRP.setThirst(tonumber(user_id), 0)
             local dname = "Server "..GetConvar("servernumber", "1").." - Revive"
             local dmessage = "**".. tostring(nuser_id).. "** genoplivet **".. tostring(user_id).. "** (**"..os.date("%H:%M:%S %d/%m/%Y").."**)"
-            PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 
         end
     end)
@@ -400,7 +400,7 @@ local function ch_givemoney(player,choice)
                             vRP.giveMoney(user_id, amount)
                             TriggerClientEvent("pNotify:SendNotification", player,{text = "Du spawnede " ..amount.. "$", type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
 
-                            PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - "..steamname, content = "**ID: "..user_id.." ("..identity.firstname.." "..identity.name..")** spawnede **"..amount.." $** - Kommentar: *"..reason.."*"}), { ['Content-Type'] = 'application/json' })
+                            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - "..steamname, content = "**ID: "..user_id.." ("..identity.firstname.." "..identity.name..")** spawnede **"..amount.." $** - Kommentar: *"..reason.."*"}), { ['Content-Type'] = 'application/json' })
                         end
                     end)
                 end)
@@ -431,7 +431,7 @@ local function ch_giveitem(player,choice)
                                     amount = parseInt(amount)
                                     vRP.giveInventoryItem(user_id, idname, amount,true)
 
-                                    PerformHttpRequest('https://discordapp.com/api/webhooks/640566742116204544/fA-HYtSDvkoRBBgTqyc_kMLRYfB_pN6KhR67pDYNash57MKHTusFEmTzXoWLU8kOWW_h', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - "..steamname, content = "**ID: "..user_id.." ("..identity.firstname.." "..identity.name..")** spawnede **"..amount.." stk. "..idname.."** - Kommentar: *"..reason.."*"}), { ['Content-Type'] = 'application/json' })
+                                    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - "..steamname, content = "**ID: "..user_id.." ("..identity.firstname.." "..identity.name..")** spawnede **"..amount.." stk. "..idname.."** - Kommentar: *"..reason.."*"}), { ['Content-Type'] = 'application/json' })
                                 end
                             end)
                         end)
@@ -465,7 +465,7 @@ local function ch_calladmin(player,choice)
         if ok then -- take the call
           if not answered then
              local steamname = GetPlayerName(v)
-            PerformHttpRequest('https://discordapp.com/api/webhooks/640567695540224025/sl7lY0bVG6wvZfZHzVnair63JaX9nhzKs03XsyfMTFwbNrXCYEp4hoKSTUJ1mCtf1CYT', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork", content = "```\n".. steamname.."\nTog et admin call fra ID "..user_id..".\nIndhold: "..desc..".```"}), { ['Content-Type'] = 'application/json' })  -- answer the call
+            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "DevoNetwork", content = "```\n".. steamname.."\nTog et admin call fra ID "..user_id..".\nIndhold: "..desc..".```"}), { ['Content-Type'] = 'application/json' })  -- answer the call
             vRPclient.notify(player,{"En staff har taget din case!"})
             vRPclient.getPosition(player, {}, function(x,y,z)
             vRPclient.teleport(v,{x,y,z})
@@ -516,7 +516,7 @@ local function choice_bilforhandler(player, choice)
                                                                 end)
                                                                 local message = "**"..user_id.."** solgte en **"..spawn.."** til **"..nuser_id.."** for **"..format_thousands(tonumber(price)).." $**"
                                                                 if lowprice then message = message.." @everyone" end
-                                                                PerformHttpRequest('https://discordapp.com/api/webhooks/640567792084451328/BZ7YRxRbJ2Hh6j3-PEaI3_Jcc8DYet_DGmY_qioK8La7ZeJI_K3uHBvEwQBNnnmuttxm', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - Bilforhandler", content = message}), { ['Content-Type'] = 'application/json' })
+                                                                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0") .." - Bilforhandler", content = message}), { ['Content-Type'] = 'application/json' })
 
                                                                 TriggerClientEvent("pNotify:SendNotification", target,{text = {"Tillykke med din <b style='color: #4E9350'>"..spawn.."</b>!"}, type = "warning", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                                                             else
@@ -590,7 +590,7 @@ local function ch_noclip(player, choice)
                 msg = "stoppet noclip her: `"..coords.."`"
             end
             local message = "**"..user_id.."** "..msg.." (**"..os.date("%H:%M:%S %d/%m/%Y").."**)"
-            sendToDiscord2("https://discordapp.com/api/webhooks/603158449651580949/AjR1J_eA_LzBGmY4D3ICZKhg8SV0OtKBwxQ3E36zBl7v0GFSle8hqciJCyHsJDrPaDok","Server "..server.." - Noclip",message)
+            sendToDiscord2("DIT_WEBHOOK_LINK","Server "..server.." - Noclip",message)
         end
     end)
 end
@@ -710,7 +710,7 @@ function addjob(player,group)
                     word = "forfremmet til"
                     dmessage = "**"..user_id.."** har lige forfremmet **"..nuser_id.."** til **"..rankup[1].."** ("..dato..")"
                 end
-                PerformHttpRequest('https://discordapp.com/api/webhooks/603158449651580949/AjR1J_eA_LzBGmY4D3ICZKhg8SV0OtKBwxQ3E36zBl7v0GFSle8hqciJCyHsJDrPaDok', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - "..title, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - "..title, content = dmessage}), { ['Content-Type'] = 'application/json' })
                 TriggerClientEvent("pNotify:SendNotification", player,{text = {nuser_id.." er blevet "..word.." <b style='color: #4E9350'>"..rankup[1].."</b>!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                 TriggerClientEvent("pNotify:SendNotification", target,{text = {"Du er blevet "..word.." <b style='color: #4E9350'>"..rankup[1].."</b>!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
             else
@@ -734,7 +734,7 @@ function removejob(player,group)
                 vRP.addUserGroup(nuser_id,"Arbejdsløs")
                 local dato = os.date("**%d-%m-%Y** kl. **%X**")
                 local dmessage = "**"..user_id.."** har lige fyret **"..nuser_id.."** fra **"..rank.."** ("..dato..")"
-                PerformHttpRequest('https://discordapp.com/api/webhooks/603158449651580949/AjR1J_eA_LzBGmY4D3ICZKhg8SV0OtKBwxQ3E36zBl7v0GFSle8hqciJCyHsJDrPaDok', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Fyret", content = dmessage}), { ['Content-Type'] = 'application/json' })
+                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Fyret", content = dmessage}), { ['Content-Type'] = 'application/json' })
                 TriggerClientEvent("pNotify:SendNotification", player,{text = {nuser_id.." er blevet fyret som <b style='color: #DB4646'>"..rank.."</b>!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
                 TriggerClientEvent("pNotify:SendNotification", target,{text = {"Du er blevet fyret som <b style='color: #DB4646'>"..rank.."</b>!"}, type = "success", queue = "global", timeout = 4000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
             else

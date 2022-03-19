@@ -67,7 +67,7 @@ function ch_give(idname, player, choice)
 
                 local dname = "[ID - ".. tostring(user_id).. "] SP-Logging"
                 local dmessage = "ID:".. tostring(user_id).. " Just gave ID:".. tostring(nuser_id).. " ".. tostring(amount).. " ".. tostring(idname)
-                PerformHttpRequest('https://discordapp.com/api/webhooks/640568972424642585/HKSlh5ITTOEXt7oJGPzcSckYjGSZY8yVHWFYb_0B-lF20NNQA5ZpTWwgD0XpJP4oBXrB', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
               else
                 vRPclient.notify(player,{lang.common.invalid_value()})
               end
@@ -96,7 +96,7 @@ function ch_trash(idname, player, choice)
 
         local dname = "[ID - ".. tostring(user_id).. "] SP-Logging"
         local dmessage = "ID:".. tostring(user_id).. " Just destroyed ".. tostring(amount).. " ".. tostring(idname)
-        PerformHttpRequest('https://discordapp.com/api/webhooks/640568972424642585/HKSlh5ITTOEXt7oJGPzcSckYjGSZY8yVHWFYb_0B-lF20NNQA5ZpTWwgD0XpJP4oBXrB', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
         
         vRPclient.notify(player,{lang.inventory.trash.done({vRP.getItemName(idname),amount})})
 		TriggerClientEvent("DropSystem:drop", player, idname, amount)

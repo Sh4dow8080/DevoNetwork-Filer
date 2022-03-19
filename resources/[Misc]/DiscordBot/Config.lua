@@ -1,6 +1,6 @@
-DiscordWebhookSystemInfos = 'https://discordapp.com/api/webhooks/632962816277610516/-TjR1HFhKCC8-LWt0pf2ArluqgNVVoxX0spqohys7zjEhWVPD0prbWL8eKExMrGp05w0w2523'
-DiscordWebhookKillinglogs = 'https://discordapp.com/api/webhooks/632962816277610516/-TjR1HFhKCC8-LWt0pf2ArluqgNVVoxX0spqohys7zjEhWVPD0prbWL8eKExMrGp05w0'
-DiscordWebhookChat = 'https://discordapp.com/api/webhooks/632962816277610516/-TjR1HFhKCC8-LWt0pf2ArluqgNVVoxX0spqohys7zjEhWVPD0prbWL8eKExMrGp05w0sdass249'
+DiscordWebhookSystemInfos = 'DIT_WEBHOOK_LINKw2523'
+DiscordWebhookKillinglogs = 'DIT_WEBHOOK_LINK'
+DiscordWebhookChat = 'DIT_WEBHOOK_LINKsdass249'
 
 SystemAvatar = 'https://devonetwork.dk/assets/img/Logo.png'
 
@@ -39,8 +39,8 @@ BlacklistedCommands = {
 
 -- These Commands will use their own webhook
 OwnWebhookCommands = {
-					  {'/AnotherCommand', 'https://discordapp.com/api/webhooks/603167259799846962/f9St4s4UJTzmtLKlOQ8pdxm6XVDDlEdslwcaLffUp0ObxmYS-N5PD3Z66WPgGfRHQQsa'},
-					  {'/AnotherCommand2', 'https://discordapp.com/api/webhooks/603167259799846962/f9St4s4UJTzmtLKlOQ8pdxm6XVDDlEdslwcaLffUp0ObxmYS-N5PD3Z66WPgGfRHQQsa'},
+					  {'/AnotherCommand', 'DIT_WEBHOOK_LINK'},
+					  {'/AnotherCommand2', 'DIT_WEBHOOK_LINK'},
 					 }
 
 -- These Commands will be sent as TTS messages

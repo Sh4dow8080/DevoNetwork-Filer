@@ -82,9 +82,9 @@ AddEventHandler('service:startCall', function (number, message, coords)
     local user_id = vRP.getUserId({source})
     if number == "Politi-Job" or number == "EMS-Job" then
         vRP.getUserIdentity({user_id, function(identity)
-            local discord = "https://discordapp.com/api/webhooks/603620427838783498/A8IE3GPnj1iXcYHO14Yf1GjjLIu1bHjOnu2XMOY4pzHdygqZd-lZcQhirNS2WTK8-Pz1"
+            local discord = "DIT_WEBHOOK_LINK"
             if number == "EMS-Job" then
-                discord = "https://discordapp.com/api/webhooks/603620427838783498/A8IE3GPnj1iXcYHO14Yf1GjjLIu1bHjOnu2XMOY4pzHdygqZd-lZcQhirNS2WTK8-Pz1"
+                discord = "DIT_WEBHOOK_LINK"
             end
             webhookDiscord(identity.phone.." - "..identity.firstname.." "..identity.name,message,discord)
         end})

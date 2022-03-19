@@ -180,7 +180,7 @@ local choice_loot = {function(player,choice)
                                         -- clear all weapons
                                         vRPclient.giveWeapons(nplayer,{{},true})
                                         if vitems ~= "" then table.insert(fields, { name = "Equiped:", value = vitems }) end
-                                        PerformHttpRequest('https://discordapp.com/api/webhooks/642435109076729886/01E2zivPKqy3Q56pFeicWZ0LtFwv6Vt5BYP1Cx5z7Al1aS6ZdrQBjNAmVvgbZAFufQaE', function(err, text, headers) end, 'POST', json.encode(
+                                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode(
                                             {
                                                 username = "Server "..GetConvar("servernumber", "1").." - Loot",
                                                 content = "**".. tostring(user_id).. "** har lige lootet **".. tostring(nuser_id) .. "**",
@@ -531,7 +531,7 @@ local ch_jail = {function(player,choice)
                                         jail_clock(tonumber(target_id),tonumber(jail_time))
                                         local user_id = vRP.getUserId({player})
 
-                                        PerformHttpRequest('https://discordapp.com/api/webhooks/613052187572043860/7z7eF2XYEa4VUp2FeZ12KJVrzKXOHcofIk0yYzo36UEkoG54f22NcL_hq4aCL3SKy3D_', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Fængsel", content = "**"..user_id .. "** fængslet **"..target_id.."** i **" .. jail_time .. " minut(ter)**"}), { ['Content-Type'] = 'application/json' })
+                                        PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Fængsel", content = "**"..user_id .. "** fængslet **"..target_id.."** i **" .. jail_time .. " minut(ter)**"}), { ['Content-Type'] = 'application/json' })
                                     else
                                         TriggerClientEvent("pNotify:SendNotification", player,{text = "Spilleren ikke i håndjern.", type = "error", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                                     end
@@ -569,7 +569,7 @@ local ch_unjail = {function(player,choice)
                                 TriggerClientEvent("pNotify:SendNotification", player,{text = "Mål vil blive frigivet snart", type = "info", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                                 TriggerClientEvent("pNotify:SendNotification", target,{text = "Nogen sank din dom", type = "info", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
 
-                                PerformHttpRequest('https://discordapp.com/api/webhooks/613052187572043860/7z7eF2XYEa4VUp2FeZ12KJVrzKXOHcofIk0yYzo36UEkoG54f22NcL_hq4aCL3SKy3D_', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Befriet", content = "**"..user_id .. "** befriet **"..target_id.."** fra sin dom på **" .. custom .. " minut(ter)**"}), { ['Content-Type'] = 'application/json' })
+                                PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Befriet", content = "**"..user_id .. "** befriet **"..target_id.."** fra sin dom på **" .. custom .. " minut(ter)**"}), { ['Content-Type'] = 'application/json' })
                             else
                                 TriggerClientEvent("pNotify:SendNotification", player,{text = "Det id virker ugyldigt", type = "error", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                             end
@@ -644,7 +644,7 @@ local ch_fine = {function(player,choice)
                                                 TriggerClientEvent("pNotify:SendNotification", target,{text = "Du modtog en bøde på "..fine.." $ for: "..reason.."<br>Nuværende gæld: <b style='color: #DB4646'>"..format_thousands(payment).." $</b>", type = "info", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                                             end
                                             local user_id = vRP.getUserId({player})
-                                            PerformHttpRequest('https://discordapp.com/api/webhooks/613052187572043860/7z7eF2XYEa4VUp2FeZ12KJVrzKXOHcofIk0yYzo36UEkoG54f22NcL_hq4aCL3SKy3D_', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Bøde", content = "**"..user_id .. "** har givet en bøde til **"..target_id.."** på **" .. fine .. "** med grunden: ".. reason}), { ['Content-Type'] = 'application/json' })
+                                            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server " .. GetConvar("servernumber","0").." - Bøde", content = "**"..user_id .. "** har givet en bøde til **"..target_id.."** på **" .. fine .. "** med grunden: ".. reason}), { ['Content-Type'] = 'application/json' })
                                             vRP.closeMenu({player})
                                         else
                                             TriggerClientEvent("pNotify:SendNotification", player,{text = "Ikke nok penge!", type = "error", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
@@ -857,7 +857,7 @@ function vRPbm.payPhoneNumber(user_id,phone)
                             vRP.setBankMoney({target_id,target_bank})
                             local dname = "[ ID: ".. tostring(user_id).. " ] - MobilePay | Send"
                             local dmessage = "ID: **".. tostring(user_id).. "** har lige sendt  **".. tostring(transfer) .."**$ tiL ID: **".. tostring(target_id) .."**"
-                            PerformHttpRequest('https://discordapp.com/api/webhooks/611240065565458452/tko6rmGc6OWJ2ytoz3XGb1jIs66l5dEsUC1vXU3zkYVdC7DyHZSrTgQ1WEgmhhEydQb1', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                            PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
                             vRP.getUserIdentity({user_id, function(identity)
                                 local my_directory_name = vRP.getPhoneDirectoryName({target_id, identity.phone})
                                 if my_directory_name == "unknown" then
@@ -970,7 +970,7 @@ local ch_freeze = {function(player,choice)
                     BMclient.loadFreeze(target,{true,true,true})
                     local dname = "Server "..GetConvar("servernumber", "1").."- Freeze"
                     local dmessage = "**".. tostring(user_id).. "** har lige frosset **".. tostring(target_id) .. "**"
-                    PerformHttpRequest('https://discordapp.com/api/webhooks/603158449651580949/AjR1J_eA_LzBGmY4D3ICZKhg8SV0OtKBwxQ3E36zBl7v0GFSle8hqciJCyHsJDrPaDok', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+                    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
                 else
                     TriggerClientEvent("pNotify:SendNotification", player,{text = "Det id virker ugyldigt", type = "error", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                 end

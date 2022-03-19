@@ -18,7 +18,7 @@ AddEventHandler('chatMessage', function(source, name, message)
 						TriggerClientEvent("pNotify:SendNotification", source,{text = "Advarsel sendt [Når denne går væk er der gået 10min]",type = "info",timeout = (600000),layout = "bottomCenter",queue = "global",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
 						local dname = "[ ID: ".. tostring(user_id).. " ] - Server | dsupport"
 						local dmessage = "**[ ID: ".. tostring(user_id).. " ]** sendte discord advarsle til **[ ID: " .. tostring(nuser_id).. " ]**."
-						PerformHttpRequest('https://discordapp.com/api/webhooks/644483281550573578/0ugMzpbv7MB2eQkxh0BOXwLuaF-kzmA3WxJc9Tf9voAmky_U_GXSDmFetz2HMkeEfLoA', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
+						PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = dname, content = dmessage}), { ['Content-Type'] = 'application/json' })
 					else
 						TriggerClientEvent("pNotify:SendNotification", source,{text = "Ugyldigt eller manglende ID", type = "error", queue = "global", timeout = 4000, layout = "centerLeft",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}}) 
 					end

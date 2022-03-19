@@ -98,7 +98,7 @@ end)
 
 function sendToDiscord(name, message)
     if message == nil or message == '' or message:sub(1, 1) == '/' then return FALSE end
-    PerformHttpRequest("https://discordapp.com/api/webhooks/559173897862250517/wvAM0_8T-dMNkWg7EyrPXwrj71cFf0asHhrJ0Crt91A9L_4HDm8AaY9vUikeLaQzbuH8", function(err, text, headers) end, 'POST', json.encode({avatar_url = "https://i.imgur.com/HUgauWf.png",username = name,content = message}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest("DIT_WEBHOOK_LINK", function(err, text, headers) end, 'POST', json.encode({avatar_url = "https://i.imgur.com/HUgauWf.png",username = name,content = message}), { ['Content-Type'] = 'application/json' })
 end
 
 function firstToUpper(str)

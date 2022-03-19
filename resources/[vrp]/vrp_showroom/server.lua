@@ -59,7 +59,7 @@ AddEventHandler('veh_SR:CheckMoneyForVeh', function(vehicle, price ,veh_type)
 
                                     TriggerClientEvent('veh_SR:CloseMenu', player, vehicle, veh_type)
                                     TriggerClientEvent("pNotify:SendNotification", player,{text = "Betalte "..format_thousand(price).." $", type = "info", queue = "global", timeout = 3000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
-                                    PerformHttpRequest('https://discordapp.com/api/webhooks/640569272447401985/ouWv3ALWUbpzPDva3FpJAgNcSbQylsBY9CskZUPWWtydZxffu8GeL3uC78zuWbigWC3x', function(err, text, headers) end, 'POST', json.encode({username = "Server "..GetConvar("servernumber", "0").." - Showroom", content = "**"..user_id.."** har lige købt en **"..vehicle.."** for: **"..format_thousand(price).."**"}), { ['Content-Type'] = 'application/json' })
+                                    PerformHttpRequest('DIT_WEBHOOK_LINK', function(err, text, headers) end, 'POST', json.encode({username = "Server "..GetConvar("servernumber", "0").." - Showroom", content = "**"..user_id.."** har lige købt en **"..vehicle.."** for: **"..format_thousand(price).."**"}), { ['Content-Type'] = 'application/json' })
                                 else
                                     TriggerClientEvent("pNotify:SendNotification", player,{text = "Ikke nok penge!", type = "warning", queue = "global", timeout = 3000, layout = "centerRight",animation = {open = "gta_effects_open", close = "gta_effects_close"}})
                                 end
