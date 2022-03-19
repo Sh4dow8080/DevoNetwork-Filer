@@ -1,4 +1,4 @@
-local WaitTime = 100 
+local WaitTime = 100
 
 Citizen.CreateThread(function()
 	while true do

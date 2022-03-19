@@ -1,5 +1,5 @@
 {
-  "reseau": " Devo - 4G",
+  "reseau": " SERVER - 4G",
   "warningMessageCount": 2000,
   "themeColor": "#303f9f",
   "colors": [
@@ -21,20 +21,22 @@
     "#8D6E63",
     "#78909C"
   ],
-
   "useFormatNumberFrance": false,
-
   "useWebRTCVocal": true,
   "RTCConfig": {
-    "iceServers": [{
-      "urls": ["turn:numb.viagenie.ca"],
-      "username": "detvardog@gmail.com",
-      "credential": "Mike12"
-    }]
+    "iceServers": [
+      {
+        "urls": [
+          "turn:numb.viagenie.ca"
+        ],
+        "username": "detvardog@gmail.com",
+        "credential": "Mike12"
+      }
+    ]
   },
-  "background" : {
-	"Custom URL": "URL",
-	"Los Santos": "01.jpg",
+  "background": {
+    "Custom URL": "URL",
+    "Los Santos": "01.jpg",
     "Univers": "02.jpg",
     "Bølge": "03.jpg",
     "Skov": "04.jpg",
@@ -49,8 +51,6 @@
     "label": "Los Santos",
     "value": "01.jpg"
   },
-
-
   "coque": {
     "Oneplus 6T": "oneplus6t.png",
     "Samsung S9": "s9.png",
@@ -60,8 +60,6 @@
     "label": "Ingen",
     "value": "Ingen"
   },
-
-
   "serviceCall": [
     {
       "display": "Politi",
@@ -115,7 +113,7 @@
         }
       ]
     },
-	    {
+    {
       "display": "Bilforhandler",
       "icon": "/html/static/img/icons_app/bilbasen.png",
       "subMenu": [
@@ -128,7 +126,7 @@
         }
       ]
     },
-	   {
+    {
       "display": "DVS Vagt",
       "icon": "/html/static/img/icons_app/dvs.png",
       "subMenu": [
@@ -224,7 +222,7 @@
       "name": "Dark Chat",
       "icons": "/html/static/img/icons_app/tchat.png",
       "routeName": "tchat",
-	  "enabled": false
+      "enabled": false
     },
     {
       "name": "Noter",

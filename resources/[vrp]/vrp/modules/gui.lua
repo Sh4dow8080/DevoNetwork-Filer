@@ -148,7 +148,7 @@ end
 -- open the player main menu
 function vRP.openMainMenu(source)
   vRP.buildMenu("main", {player = source}, function(menudata)
-    menudata.name = "DevoNetwork"
+    menudata.name = "DIT_SERVER_NAVN"
     menudata.css = {top="75px",header_color="rgb(255,6,0)"}
     vRP.openMenu(source,menudata) -- open the generated menu
   end)
