@@ -89,21 +89,6 @@ local ch_deleteveh = {function(player,choice)
     BMclient.deleteVehicleInFrontOrInside(player,{10.0})
 end, "Fjern den nærmeste bil."}
 
---client function
-local ch_crun = {function(player,choice)
-    vRP.prompt({player,"Funkrion:","",function(player,stringToRun)
-        stringToRun = stringToRun or ""
-        TriggerClientEvent("RunCode:RunStringLocally", player, stringToRun)
-    end})
-end, "Kør klient funktion."}
-
---server function
-local ch_srun = {function(player,choice)
-    vRP.prompt({player,"Funktion:","",function(player,stringToRun)
-        stringToRun = stringToRun or ""
-        TriggerEvent("RunCode:RunStringRemotelly", stringToRun)
-    end})
-end, "Kør server funktion."}
 
 --police weapons // comment out the weapons if you dont want to give weapons.
 local police_weapons = {}
@@ -1191,14 +1176,6 @@ vRP.registerMenuBuilder({"admin", function(add, data)
 
         if vRP.hasPermission({user_id,"player.sprites"}) then
             choices["@Sprites"] = ch_sprites -- turn on only name sprites
-        end
-
-        if vRP.hasPermission({user_id,"admin.crun"}) then
-            choices["@Crun"] = ch_crun -- run any client command, any GTA V client native http://www.dev-c.com/nativedb/
-        end
-
-        if vRP.hasPermission({user_id,"admin.srun"}) then
-            choices["@Srun"] = ch_srun -- run any server command, any GTA V server native http://www.dev-c.com/nativedb/
         end
 
         if vRP.hasPermission({user_id,"player.tptowaypoint"}) then
