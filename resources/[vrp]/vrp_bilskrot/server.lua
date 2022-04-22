@@ -50,7 +50,13 @@ RegisterServerEvent("scrap:SellVehicle")
 AddEventHandler("scrap:SellVehicle", function(vehPrice)
 	local user_id = vRP.getUserId({source})
 	local player = vRP.getUserSource({user_id})
-    vRP.giveBankMoney({user_id,vehPrice})
+	for k,v in ipairs(groups) do
+		if vRP.hasGroup({user_id,v}) then
+    			vRP.giveBankMoney({user_id,vehPrice})
+		else
+			print(GetPlayerName(player) .. "(".. user_id ..") triggerede et money event uden at være mekaniker, er nok en modder.")
+		end
+	end
 end)
 
 RegisterServerEvent('scrap:Mechanic')
