@@ -22,7 +22,11 @@ AddEventHandler('scrapyard:payMeNow', function(amount)
 	local source = source
 	local user_id = vRP.getUserId({source})
 	if vRP.hasPermission({user_id,"repair.scrap"}) then
-		vRP.giveBankMoney({user_id,amount})
+		if tonumber(amount) <= 2500 then
+			vRP.giveBankMoney({user_id,amount})
+		else
+			print(GetPlayerName(source) .. "(".. user_id ..") prøvede at give flere penge end man kan få fra jobbet, er nok en modder.")	
+		end
 	else
 		print(GetPlayerName(source) .. "(".. user_id ..") triggerede et money event uden at være mekaniker, er nok en modder.")
 	end
