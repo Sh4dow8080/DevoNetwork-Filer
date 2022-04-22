@@ -21,7 +21,11 @@ RegisterServerEvent('scrapyard:payMeNow')
 AddEventHandler('scrapyard:payMeNow', function(amount)
 	local source = source
 	local user_id = vRP.getUserId({source})
-	vRP.giveBankMoney({user_id,amount})
+	if vRP.hasPermission({user_id,"repair.scrap"}) then
+		vRP.giveBankMoney({user_id,amount})
+	else
+		print(GetPlayerName(source) .. "(".. user_id ..") triggerede et money event uden at være mekaniker, er nok en modder.")
+	end
 	TriggerClientEvent("pNotify:SendNotification", source,{text = "Modtog <b style='color: #4E9350'>"..amount.." $</b>.", type = "success", queue = "global", timeout = 5000, layout = "centerRight",animation = {open = "gta_effects_fade_in", close = "gta_effects_fade_out"}})
 end)
 
